@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('menu_item_id')->constrained('menu_items')->onDelete('cascade');
+            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade')->nullable();
             $table->integer('rating')->unsigned()->min(1)->max(5);
             $table->text('comment')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
